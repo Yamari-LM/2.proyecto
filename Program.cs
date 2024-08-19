@@ -1,73 +1,46 @@
 ﻿using System;
 
-class Program
+class Notas
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        
-        Console.WriteLine("Bienvenido ");
+        Console.WriteLine("Sistema de Calculo de Notas");
+        Console.WriteLine("Favor Ingresa tu Nombre");
+        string Nombre = Console.ReadLine();
+        Console.WriteLine("Favor Ingresa el Nombre de la Asignatura");
+        string Asignatura = Console.ReadLine();
+        Console.WriteLine("Ingresa la Primer Nota parcial");
+        int Notal = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresa la Segunda Nota parcial");
+        int Nota2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresa la Tercer Nota parcial");
+        int Nota3 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresa la Cuarta Nota parcial");
+        int Nota4 = Convert.ToInt32(Console.ReadLine());
+        int promedio = (Notal + Nota2 + Nota3 + Nota4) / 4;
 
-        
-        Console.Write("Por favor, ingrese su nombre: ");
-        string nombre = Console.ReadLine();
-
-        Console.Write("Por favor, ingrese su grado: ");
-        string grado = Console.ReadLine();
-
-        
-        Console.WriteLine($"\nHola {nombre}, del grado {grado}.\n");
-
-        double[] notas = new double[4];
-
-        
-        for (int i = 0; i < notas.Length; i++)
+        if (promedio <= 70)
         {
-            Console.Write($"Ingrese la nota {i + 1}: ");
-            notas[i] = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Usted esta reprobado");
+            Console.ReadKey();
         }
+        if (promedio > 70 & promedio <= 80)
+        {
+            Console.WriteLine("Usted se encuentra en la categoria de Bueno");
+            Console.ReadKey();
+        }
+        if (promedio > 80 & promedio <= 90)
+        {
+            Console.WriteLine("Usted se encuentra en la categoria de Muy Bueno");
+            Console.ReadKey();
+        }
+        if (promedio > 90 & promedio < 100)
 
-       
-        double promedio = CalcularPromedio(notas);
-
-        
-        string observacion = DeterminarObservacion(promedio);
-
-       
-        Console.WriteLine($"\n{nombre}, tu promedio es: {promedio:F2}");
-        Console.WriteLine($"Observación: {observacion}");
+            Console.WriteLine("Usted es Sobresaliente");
+        Console.ReadKey();
     }
+}
 
-    
-    static double CalcularPromedio(double[] notas)
-    {
-        double suma = 0;
-        for (int i = 0; i < notas.Length; i++)
-        {
-            suma += notas[i];
-        }
-        return suma / notas.Length;
-    }
-
-    
-    static string DeterminarObservacion(double promedio)
-    {
-        if (promedio < 70)
-        {
-            return "Reprobado";
-        }
-        else if (promedio >= 70 && promedio <= 80)
-        {
-            return "Bueno";
-        }
-        else if (promedio >= 81 && promedio <= 90)
-        {
-            return "Muy Bueno";
-        }
-        else 
-        {
-            return "Excelente";
-        }
-    }
 }
 
 
