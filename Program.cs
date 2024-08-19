@@ -5,7 +5,7 @@ class Program
     static void Main()
     {
         
-        Console.WriteLine("Bienvenido al sistema de cálculo de promedios.");
+        Console.WriteLine("Bienvenido ");
 
         
         Console.Write("Por favor, ingrese su nombre: ");
